@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<P><strong><center> DATA PASUKAN </strong></center>
+<table class="table table-hover" border="1" width="849" align="center" cellspacing="2" cellpadding="2" style="background-color:#FFFFE0;">
+<tr>
+<br>
+<br>
+<br>
+<tr>
+<th>ID PASUKAN</th>
+<th>NAMA PASUKAN</th>
+<th>NEGERI PASUKAN</th>
+
+</tr>
+{% for row in rows %}
+ <tr>
+   <td>{{row[0]}}</td>
+   <td>{{row[1]}}</td>
+   <td>{{row[2]}}</td>
+  
+   
+
+ </tr>
+
+{% endfor %}
+</table>
+
+{% endblock %}

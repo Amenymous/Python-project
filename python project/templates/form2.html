@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+{%if row==None: %}
+  Nama tiada dalam senarai
+{% else %}
+  <form >
+    ID PEMAIN:<br>
+    <input type="text" name="id_pemain" value={{row[0]}} readonly><br>
+    NAMA PEMAIN: <br>
+    <input type="text" name="nama_pemain" size=30 value={{row[1]}} readonly><br>
+    UMUR: <br>
+    <input type="text" name="umur" value={{row[2]}} readonly> <br>     
+	NO JERSI: <br>
+    <input type="text" name="no_jersi" value={{row[3]}} readonly> <br> 
+	POSISI: <br>
+    <input type="text" name="posisi" value={{row[4]}} readonly> <br> 
+	GRED PEMAIN: <br>
+    <input type="text" name="gred_pemain" value={{row[5]}} readonly> <br> 
+       
+   </form>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+ <center> 
+ <h3>MASUKKAN GAJI PEMAIN</h3>
+ {% set stat=status %}
+  <script >
+function kira() {
+		var jum_gaji_bersih, jum_gaji_ditetapkan, imbuhan_mvp, cukai_pemain;
+	     jum_gaji_ditetapkan = parseFloat(document.form1.jum_gaji_ditetapkan.value);
+		imbuhan_mvp = parseFloat(document.form1.imbuhan_mvp.value);
+		 cukai_pemain = parseFloat(document.form1.cukai_pemain.value);
+		 
+		cukai_pemain = 0.08 * jum_gaji_ditetapkan;
+		jum_gaji_bersih = jum_gaji_ditetapkan - cukai_pemain + imbuhan_mvp;
+		 
+		 document.form1.jum_gaji_bersih.value=jum_gaji_bersih;
+		  
+    }
+</script>
+  
+  <form name="form1" action='/inupdategred' method='post'>
+    ID PEMAIN:<br>
+    {% if stat=="1": %}
+    <input type="text" name="id_pemain" value="{{row[0]}}" readonly><br>
+    {% else: %}
+    <input type="text" name="id_pemain" value="{{row[0]}}"><br>
+    {% endif %}
+	
+    ID PASUKAN: <br>
+    <input type="text" name="id_pasukan" value="{{row[1]}}"><br>
+	
+    NO RESIT GAJI <br>
+    <input type="text" name="no_resit_gaji" value="{{row[2]}}"><br>
+	
+    JUM GAJI DITETAPKAN: <br>
+    <input type="number" name="jum_gaji_ditetapkan" value="{{row[3]}}"><br>
+	<br>
+	
+	CUKAI PEMAIN: <br>
+    <input type="float" name="cukai_pemain" value="{{row[4]}}"><br>
+	<br>
+   
+    IMBUHAN MVP: <br>
+    <input type="number" name="imbuhan_mvp" value="{{row[5]}}"><br>
+	<br>
+   
+   
+ <button type="button" onclick="kira()" class="btn btn-info">Kira</button><br>
+   
+    JUM GAJI BERSIH: <br>
+    <input type="number" name="jum_gaji_bersih" value="{{row[6]}}" readonly><br>
+	
+    <input type="hidden" name="status" value="{{status}}"> 
+    <br>
+   <p><input type=submit value=Submit></p>
+</form>
+</center>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+<html>
+<link rel="stylesheet" media="screen" href = "/static/css/bootstrap.min.css">
+<meta name="viewport" content = "width=device-width, initial-scale=1.0">
+<head>
+<style>
+	body
+	{
+	background-repeat:no-repeat;
+	background-attached:fixed;
+	background-size:cover;
+	background-image:url({{url_for('static',filename='images/gambar4.jpg')}})
+	}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">MAIN MENU</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/">HOME</a></li>
+      <li><a href="/data_pemains">DATA PEMAIN</a></li>
+      <li><a href="/data_pasukans">DATA PASUKAN</a></li>
+     <li><a href="/data_gaji_pemains">DATA GAJI PEMAIN</a></li>
+      <li><a href="/new">PEMAIN BARU</a></li>
+       <li><a href="/new_gaji">NILAI GAJI BARU</a></li>
+	  <li><a href="/find_pemain">CARIAN</a></li>
+      
+      
+        
+           <li>{{id_pemain}}</li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  {%block content%}
+  {%endblock%}
+</div>
+
+</body>
+</html>
